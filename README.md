@@ -36,6 +36,14 @@ This project requires the following Python libraries:
    ```bash
    git clone https://github.com/Aradhye-sys/wdf_processor.git
 
+## Citation
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14470842.svg)](https://doi.org/10.5281/zenodo.14470842)
+
+If you use this tool in your research, please cite it as:
+> Prasad Aradhye. "WDF Processor: A Python Tool for Processing and Visualizing WDF Spectral Data." University of Edinburgh, 2024. DOI: [10.5281/zenodo.14470842](https://doi.org/10.5281/zenodo.14470842)
+
+
 ## Acknowledgments
 - This project uses the `renishawWiRE` library, licensed under the MIT License.
 
