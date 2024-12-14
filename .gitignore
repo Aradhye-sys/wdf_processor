@@ -1,0 +1,14 @@
+# Ignore Python cache files
+*.pyc
+__pycache__/
+
+# Ignore IDE/project-specific files
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore large data files (if applicable)
+*.wdf
