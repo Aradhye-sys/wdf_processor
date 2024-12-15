@@ -1,90 +1,68 @@
-# Ignore Python cache files and virtual environments
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-*.env/
-*.venv/
+
+# Virtual environment
 env/
 venv/
 ENV/
-VENV/
+*.env
+*.venv
 
-# Ignore system files
+# macOS
 .DS_Store
+
+# Windows
 Thumbs.db
-desktop.ini
 
-# Ignore IDE and editor settings
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Ignore log files and temporary files
+# Logs
 *.log
-*.tmp
-*.bak
-*.old
-*.save
-*.orig
-
-# Ignore OS-specific files
-*.~lock.*
-*.lnk
-*.crdownload
-
-# Ignore compiled files
-*.class
-*.o
 *.out
-*.obj
-*.exe
-*.dll
-*.so
-*.dylib
+*.err
 
-# Ignore archives and compressed files
-*.zip
-*.tar.gz
-*.rar
-*.7z
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
 
-# Ignore package manager files
-node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-
-# Ignore database files
-*.sqlite3
-*.db
-*.sql
-
-# Ignore Jupyter Notebook checkpoints
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Ignore testing output
-coverage/
-*.coverage
-.nyc_output/
-.jest/
-reports/
+# Unit test / coverage reports
+htmlcov/
+*.cover
+*.py,cover
+.coverage
+.cache
+.nosetests.xml
+coverage.xml
+*.lcov
 
-# Ignore build and distribution files
+# Build and distribution files
 build/
 dist/
-tmp/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
 
-# Ignore all files in data/private but keep the folder
-data/private/*
-!data/private/.gitkeep
+# PyInstaller
+*.manifest
+*.spec
 
-# Ignore all files in private_src but keep the folder
+# Docker
+*.pid
+
+# Hidden and temporary files
+*.swp
+*.bak
+*.tmp
+*.old
+*.orig
+*.save
+
+# Private files in private_src
 private_src/*
 !private_src/.gitkeep
-
-# Ignore custom or sensitive files
-secrets.json
-config.yaml
-.env
