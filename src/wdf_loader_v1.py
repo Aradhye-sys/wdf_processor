@@ -1,3 +1,4 @@
+#%%
 from tkinter import Tk
 from tkinter.filedialog import askopenfilenames
 from renishawWiRE import WDFReader
@@ -108,10 +109,93 @@ def plot_white_light_image(reader, scale_bar_length_microns=20):
         print("No white light image available.")
         return None
 
+def plot_white_light_image_with_crop(reader, scale_bar_length_microns=20, crop_coords=None):
+    if hasattr(reader, 'img') and reader.img is not None:
+        image = Image.open(reader.img)
+        img_x0, img_y0 = reader.img_origins
+        img_w, img_h = reader.img_dimensions
+
+        scale_per_pixel = img_w / image.size[0]
+        scale_bar_length_pixels = scale_bar_length_microns / scale_per_pixel
+
+        plt.figure(figsize=(9.4, 6))
+        plt.imshow(image, cmap='gray')
+
+        if crop_coords:
+            x_start, y_start, width, height = crop_coords
+            rect = plt.Rectangle((x_start, y_start), width, height, linewidth=2, edgecolor='red', facecolor='none')
+            plt.gca().add_patch(rect)
+
+        plt.title("Original Image - Select ROI")
+        plt.axis('on')
+        plt.show()
+
+        if crop_coords:
+            x_start, y_start, width, height = crop_coords
+        else:
+            print("Please enter the cropping coordinates (x_start, y_start, width, height):")
+            try:
+                x_start = int(input("x_start: "))
+                y_start = int(input("y_start: "))
+                width = int(input("width: "))
+                height = int(input("height: "))
+            except ValueError:
+                print("Invalid input. Skipping cropping operation.")
+                return None
+
+        cropped_image = image.crop((x_start, y_start, x_start + width, y_start + height))
+
+        x_bar_start = cropped_image.size[0] * 0.1
+        y_bar_start = cropped_image.size[1] * 0.9
+        x_bar_end = x_bar_start + scale_bar_length_pixels
+
+        plt.figure(figsize=(6, 6))
+        plt.imshow(cropped_image, cmap='gray')
+
+        plt.plot([x_bar_start, x_bar_end], [y_bar_start, y_bar_start], color='white', linewidth=2)
+        plt.text((x_bar_start + x_bar_end) / 2, y_bar_start - 10,
+                 f'{scale_bar_length_microns} µm', color='white', fontsize=12, ha='center')
+
+        plt.axis('off')
+        plt.gca().set_position([0, 0, 1, 1])
+        plt.title("Cropped Image with Scale Bar")
+        plt.show()
+
+        return {
+            "cropped_image": cropped_image,
+            "scale_bar_coords": (x_bar_start, y_bar_start, x_bar_end, y_bar_start),
+            "scale_bar_length_microns": scale_bar_length_microns,
+            "scale_per_pixel": scale_per_pixel,
+            "cropped_image_dimensions": cropped_image.size,
+        }
+    else:
+        print("No white light image available.")
+        return None
+
 if __name__ == "__main__":
     truncate_range = (100, 2000)
     wavenumber, map_spec, readers = load_wdf_files(truncate_range=truncate_range)
+
     if wavenumber is not None and map_spec is not None:
         plot_spectra(wavenumber, map_spec)
+
         if readers:
-            plot_white_light_image(readers[0])
+            for i, reader in enumerate(readers):
+                if hasattr(reader, 'img') and reader.img is not None:
+                    print(f"Processing white light image for file {i + 1}")
+                    plot_white_light_image(reader)
+
+                    crop_coords = (250, 100, 250, 250)
+
+                    cropped_image_details = plot_white_light_image_with_crop(
+                        reader,
+                        scale_bar_length_microns=20,
+                        crop_coords=crop_coords
+                    )
+
+                    if cropped_image_details:
+                        print(f"Cropped image details for file {i + 1}:")
+                        print(cropped_image_details)
+                else:
+                    print(f"No valid white light image available for file {i + 1}.")
+

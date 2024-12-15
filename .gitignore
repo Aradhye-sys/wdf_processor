@@ -12,3 +12,7 @@ Thumbs.db
 
 # Ignore large data files (if applicable)
 *.wdf
+
+# Exclude private code files and directories
+private_src/
+data/private/
