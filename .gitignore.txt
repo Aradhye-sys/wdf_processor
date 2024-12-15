@@ -76,14 +76,11 @@ build/
 dist/
 tmp/
 
-# Ignore specific folders
-data/private/
-private_src/
-
-# Optional: Keep folder structure but ignore contents except for .gitkeep
+# Ignore all files in data/private but keep the folder
 data/private/*
 !data/private/.gitkeep
 
+# Ignore all files in private_src but keep the folder
 private_src/*
 !private_src/.gitkeep
 
