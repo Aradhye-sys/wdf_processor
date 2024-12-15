@@ -1,9 +1,9 @@
-# Ignore all Python code files (.py) in private_src and data/private, except for README.md
-private_src/*.py
-!private_src/README.md
-
+# Ignore all Python files (.py) in the private/ folder, except for README.md
 data/private/*.py
 !data/private/README.md
+
+# Do not ignore Python files in the public/ folder
+data/public/*.py
 
 # General rules for ignoring unwanted files
 # Ignore macOS system files
