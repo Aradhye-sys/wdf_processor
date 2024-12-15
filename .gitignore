@@ -34,8 +34,6 @@ env/
 .idea/
 .vscode/
 
-# Ignore node_modules (if applicable)
-node_modules/
 
 # Ignore archive files
 *.zip
