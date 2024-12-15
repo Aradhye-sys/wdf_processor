@@ -1,9 +1,8 @@
-# Ignore everything inside private_src except README.md
-private_src/*
+# Ignore all Python code files (.py) in private_src and data/private, except for README.md
+private_src/*.py
 !private_src/README.md
 
-# Ignore everything inside data/private except README.md
-data/private/*
+data/private/*.py
 !data/private/README.md
 
 # General rules for ignoring unwanted files
