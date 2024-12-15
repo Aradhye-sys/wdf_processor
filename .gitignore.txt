@@ -1,0 +1,93 @@
+# Ignore Python cache files and virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env/
+*.venv/
+env/
+venv/
+ENV/
+VENV/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore IDE and editor settings
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Ignore log files and temporary files
+*.log
+*.tmp
+*.bak
+*.old
+*.save
+*.orig
+
+# Ignore OS-specific files
+*.~lock.*
+*.lnk
+*.crdownload
+
+# Ignore compiled files
+*.class
+*.o
+*.out
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore archives and compressed files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Ignore package manager files
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore database files
+*.sqlite3
+*.db
+*.sql
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore testing output
+coverage/
+*.coverage
+.nyc_output/
+.jest/
+reports/
+
+# Ignore build and distribution files
+build/
+dist/
+tmp/
+
+# Ignore data and private folders
+data/private/
+private_src/
+
+# Optional: Keep the folder structure but ignore contents except for .gitkeep
+data/private/*
+!data/private/.gitkeep
+
+private_src/*
+!private_src/.gitkeep
+
+# Ignore custom or sensitive files
+secrets.json
+config.yaml
+.env
