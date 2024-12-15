@@ -1,9 +1,3 @@
-# Ignore all files inside the private folder except README.md
-data/private/*
-!data/private/README.md
-
-# Ensure public folder contents are not ignored
-data/public/*
 
 # General rules for ignoring unwanted files
 # Ignore macOS system files
