@@ -1,41 +1,11 @@
-
-# General rules for ignoring unwanted files
-# Ignore macOS system files
-.DS_Store
-
-# Ignore Windows system files
-Thumbs.db
-desktop.ini
-
 # Ignore Python cache files
+*.pyc
 __pycache__/
-*.py[cod]
-
-# Ignore logs
-*.log
-
-# Ignore virtual environment
-venv/
-env/
-*.env
-
-# Ignore temporary files
-*.tmp
-*.swp
-*.bak
-
-# Ignore compiled files
-*.class
-*.o
-*.so
-*.out
-
-# Ignore IDE configuration files
-.idea/
+# Ignore IDE/project-specific files
 .vscode/
-
-
-# Ignore archive files
-*.zip
-*.tar.gz
-*.rar
+.idea/
+# Ignore system files
+.DS_Store
+Thumbs.db
+# Ignore large data files (if applicable)
+*.wdf
